@@ -3,16 +3,13 @@ Imports & Exports
 
 To do:
 
-* Create a data example that can be used throughout. Or a small set of them.
-* add zfill example from schools, or link to it if elsewhere
 * add from xlsx hints if any 
-* add a date example for setting column types.
-* figure out a loop of imports for a series of files that are similar except for an id or filename. So I can update the list of IDs or names and they would all import, then I can `.merge()` them together.
+* add a loop of imports for a series of files that are similar except for an id or filename. So I can update the list of IDs or names and they would all import, then I can `.merge()` them together.
 
 
 ## From csv
 
-I'm usually pulling from .csv files and it's pretty normal.::
+I'm usually pulling from .csv files and it's pretty normal. This is basic, straight out of the [Cookbook](http://agate.readthedocs.io/en/1.6.0/cookbook.html).
 
 ```python
   table = agate.Table.from_csv('filename.csv')
@@ -20,24 +17,22 @@ I'm usually pulling from .csv files and it's pretty normal.::
 
 ## Set column type
 
-But more often than not I have to explicitly set a certain column::
+But more often than not I have to set some of the columns to a specific data type:
 
+``` python
   specified_types = {
       'column_name_one': agate.Text(),
       'column_name_two': agate.Number()
   }
 
   table = agate.Table.from_csv('filename.csv', column_types=specified_types)
+```
 
-I need a date example here.
-
-## Fill in zero-padded fields
-
-This is covered in the [compute section](compute.md#zfill-fix-zero-padded-ids).
+[I should a Date and/or DateTime example above.]
 
 ## Add timezone to a date
 
-I had a case where my original data was in UTC time, but I needed to convert it to Central time. According to [agate docs on dates](), it imports naive of timezone, so you have to set it to a specific one before you can convert it to another:
+I had a case where my original data was in UTC time, but I needed to convert it to Central time. According to [agate docs on dates](http://agate.readthedocs.io/en/1.6.0/cookbook/datetime.html), it imports naive of timezone, so you have to set it to a specific timezone before you can convert it to a different one:
 
 ``` python
   import pytz
