@@ -87,7 +87,6 @@
         <li class="main active"><a href="#imports-exports">Imports &amp; Exports</a></li>
             <li><a href="#from-csv">From csv</a></li>
             <li><a href="#set-column-type">Set column type</a></li>
-            <li><a href="#fill-in-zero-padded-fields">Fill in zero-padded fields</a></li>
             <li><a href="#add-timezone-to-a-date">Add timezone to a date</a></li>
             <li><a href="#import-from-json">Import from json</a></li>
     </ul>
@@ -97,29 +96,27 @@
 <h1 id="imports-exports">Imports &amp; Exports</h1>
 <p>To do:</p>
 <ul>
-<li>Create a data example that can be used throughout. Or a small set of them.</li>
-<li>add zfill example from schools, or link to it if elsewhere</li>
 <li>add from xlsx hints if any </li>
-<li>add a date example for setting column types.</li>
-<li>figure out a loop of imports for a series of files that are similar except for an id or filename. So I can update the list of IDs or names and they would all import, then I can <code>.merge()</code> them together.</li>
+<li>add a loop of imports for a series of files that are similar except for an id or filename. So I can update the list of IDs or names and they would all import, then I can <code>.merge()</code> them together.</li>
 </ul>
 <h2 id="from-csv">From csv</h2>
-<p>I'm usually pulling from .csv files and it's pretty normal.::</p>
+<p>I'm usually pulling from .csv files and it's pretty normal. This is basic, straight out of the <a href="http://agate.readthedocs.io/en/1.6.0/cookbook.html">Cookbook</a>.</p>
 <pre><code class="python">  table = agate.Table.from_csv('filename.csv')
 </code></pre>
 
 <h2 id="set-column-type">Set column type</h2>
-<p>But more often than not I have to explicitly set a certain column::</p>
-<p>specified_types = {
+<p>But more often than not I have to set some of the columns to a specific data type:</p>
+<pre><code class="python">  specified_types = {
       'column_name_one': agate.Text(),
       'column_name_two': agate.Number()
-  }</p>
-<p>table = agate.Table.from_csv('filename.csv', column_types=specified_types)</p>
-<p>I need a date example here.</p>
-<h2 id="fill-in-zero-padded-fields">Fill in zero-padded fields</h2>
-<p>This is covered in the <a href="../compute/#zfill-fix-zero-padded-ids">compute section</a>.</p>
+  }
+
+  table = agate.Table.from_csv('filename.csv', column_types=specified_types)
+</code></pre>
+
+<p>[I should a Date and/or DateTime example above.]</p>
 <h2 id="add-timezone-to-a-date">Add timezone to a date</h2>
-<p>I had a case where my original data was in UTC time, but I needed to convert it to Central time. According to <a href="">agate docs on dates</a>, it imports naive of timezone, so you have to set it to a specific one before you can convert it to another:</p>
+<p>I had a case where my original data was in UTC time, but I needed to convert it to Central time. According to <a href="http://agate.readthedocs.io/en/1.6.0/cookbook/datetime.html">agate docs on dates</a>, it imports naive of timezone, so you have to set it to a specific timezone before you can convert it to a different one:</p>
 <pre><code class="python">  import pytz
 
   ## sets date coming in at UTC so we can convert it later
