@@ -2,7 +2,7 @@
 
 [This is a young work in progress.]
 
-This site is a an unofficial extension of the [agate](http://agate.readthedocs.io/en/1.6.0/) Python library. While the [Cookbook](http://agate.readthedocs.io/en/1.6.0/cookbook.html) and [Tutorial](https://github.com/wireservice/agate/blob/master/tutorial.ipynb) are a good start to learning and using agate, these pages are a compendium of examples and variations that I have used and would like to remember. Perhaps they are useful to others, as well.
+This site is a collection of my personal examples using [agate](http://agate.readthedocs.io/en/1.6.0/) Python library. While the [Cookbook](http://agate.readthedocs.io/en/1.6.0/cookbook.html) and [Tutorial](https://github.com/wireservice/agate/blob/master/tutorial.ipynb) are a good start to learning and using agate, these pages are a compendium of examples and variations that I have used and would like to remember. Perhaps they are useful to others, as well.
 
 I use [agate](http://agate.readthedocs.io/en/1.6.0/) in my work at the Statesman to build transparent, repeatable data pipelines and analysis in the course of reporting, usually in conjuction with [Jupyter Notebooks](http://jupyter.org/).
 

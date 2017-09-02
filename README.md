@@ -1,6 +1,6 @@
 # Welcome to Agate Examples
 
-This repo is a an unofficial extension of the [agate](http://agate.readthedocs.io/en/1.6.0/) Python library. While the [Cookbook](http://agate.readthedocs.io/en/1.6.0/cookbook.html) and [Tutorial](https://github.com/wireservice/agate/blob/master/tutorial.ipynb) have some good examples, these are variations that I would like to remember.
+This repo contains my personal examples using the [agate](http://agate.readthedocs.io/en/1.6.0/) Python library. While the [Cookbook](http://agate.readthedocs.io/en/1.6.0/cookbook.html) and [Tutorial](https://github.com/wireservice/agate/blob/master/tutorial.ipynb) have some good examples, these are variations that I would like to remember.
 
 The site is available here: [Agate examples](http://agate-examples.rtfd.io).
 
