@@ -4,8 +4,7 @@ Imports & Exports
 > To do:
 
 > * add xlsx hints, if any 
-> * add a loop of imports for a series of files that are similar except for an id or filename. So I can update the list of IDs or names and they would all import, then I can `.merge()` them together.
-
+> * add a loop of imports for a series of files that are similar except for an id or filename. So I can update the list of IDs or names and they would all import, then I can `.merge()` them together. I can use our lcra-hydromet example, but perhaps with a different dataset of csvs (mixbev or hotels) for ease of understanding.
 
 ## Set column type
 

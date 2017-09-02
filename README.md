@@ -19,3 +19,8 @@ For full documentation visit [mkdocs.org](http://mkdocs.org).
 * `mkdocs build` - Build the documentation site.
 * `mkdocs help` - Print this help message.
 
+## Using Read the Docs
+
+I needed the conf.py file included here to have it parse Markdown instead of reStructuredText, as noted in [Read the Docs](https://docs.readthedocs.io/en/latest/getting_started.html#in-markdown).
+
+I also had to set my project (in Admin > Documentation) to use "Mkdocs (Markdown)".
