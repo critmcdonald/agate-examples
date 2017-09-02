@@ -1,5 +1,5 @@
-body , p, ul, li, {
-  font-size: 1.05em;
+body , p, ul, li {
+  font-size: 1.02em;
 }
 code {
   font-size: 1em;
