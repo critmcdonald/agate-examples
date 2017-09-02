@@ -7,17 +7,9 @@ To do:
 * add a loop of imports for a series of files that are similar except for an id or filename. So I can update the list of IDs or names and they would all import, then I can `.merge()` them together.
 
 
-## From csv
-
-I'm usually pulling from .csv files and it's pretty normal. This is basic, straight out of the [Cookbook](http://agate.readthedocs.io/en/1.6.0/cookbook.html).
-
-```python
-  table = agate.Table.from_csv('filename.csv')
-```
-
 ## Set column type
 
-But more often than not I have to set some of the columns to a specific data type:
+More often than not I have to set some of the columns to a specific data type when importing. An example might be to ensure a FIPS code or ZIP is considered Text instead of a Number:
 
 ``` python
   specified_types = {
@@ -28,11 +20,9 @@ But more often than not I have to set some of the columns to a specific data typ
   table = agate.Table.from_csv('filename.csv', column_types=specified_types)
 ```
 
-[I should a Date and/or DateTime example above.]
-
 ## Add timezone to a date
 
-I had a case where my original data was in UTC time, but I needed to convert it to Central time. According to [agate docs on dates](http://agate.readthedocs.io/en/1.6.0/cookbook/datetime.html), it imports naive of timezone, so you have to set it to a specific timezone before you can convert it to a different one:
+I had a case where my original data was in UTC time, but I needed to convert it to Central time. According to [agate docs on dates](http://agate.readthedocs.io/en/1.6.0/cookbook/datetime.html), it imports dates naive of timezone, so you have to set it to a specific timezone before you can convert it to a different one:
 
 ``` python
   import pytz
@@ -48,7 +38,7 @@ I had a case where my original data was in UTC time, but I needed to convert it 
 
 Note you need to import the [pytz library](http://pytz.sourceforge.net/index.html?highlight=list%20timezones#). You can get a [list timezones here](https://stackoverflow.com/questions/13866926/python-pytz-list-of-timezones) (or make your own).
 
-In this case, the column name for the date in my data was "dateTime", not to be confused with the `.DateTime` data type used in the definition.
+In this case, the column name for the date in my data was "dateTime", not to be confused with the `.DateTime()` data type used in the definition.
 
 See the [compute page](compute.md#converting-timezones) for the conversion.
 
@@ -60,9 +50,9 @@ The example above also shows importing from a `.json` file::
     flow_08154700 = agate.Table.from_json('../downloads/flow-08154700.json', column_types=specified_type, key='records')
 ```
 
-Note you have to have a key, which is the part of the json file that defines the list of records (notably called "records" in that instance. 
+Note you need a key, which is the part of the json file that defines the list of records (notably called "records" in this instance). 
 
-My data looked like this::
+My data looked like this:
 
     {
         "siteId":"08154700",
@@ -88,5 +78,5 @@ My data looked like this::
         }
     ]}
 
-But it was only the "records" nodes that I needed, so the value I needed for the key was `records`. I'm not even sure how I would get the other information at the top.
+I only needed the "records" nodes for my table, so the value I needed for the key was `records`. I'm not even sure how I would get the other information at the top.
 

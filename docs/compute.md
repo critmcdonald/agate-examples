@@ -3,11 +3,7 @@ New columns: Using .compute()
 
 Creating new columns based on something in the data.
 
-[I need to explain a basic .compute() here.]
-
-Items to add:
-
-* new date?
+This extends the [.compute() examples](http://agate.readthedocs.io/en/1.6.0/cookbook/compute.html)
 
 zfill: Fix zero-padded IDs
 --------------------------
@@ -21,11 +17,11 @@ In school data from TEA, the `Campus_ID` column is supposed to be a 9-digit colu
   ])
 ```
 
-For the first one, we created ``New_Campus_ID`` by going through the ``Campus`` column and using the Python method ``.zfill()`` to set the number of characters to pad with zeros. For ``['Campus']`` we used ``9`` and for ``['District']`` we use ``6``.
+For the first one, we created `New_Campus_ID` by going through the `Campus` column and using the Python method `.zfill()` to set pad any `Campus` that wasn't 9 characters. For  `['District']` we used "6".
 
 ## Mapped translation
 
-We want to create a new field that inserts the longer explanation based on the a one-letter designation in the data.
+We wanted to create a new field that inserts the longer explanation based on the a one-letter designation in the data.
 
 First we have the map:
 
@@ -63,20 +59,26 @@ In then end, we have a new column called ``mapped_rating`` that includes values 
 
 ## Converting timezones
 
-I had data that came in UTC time, but I wanted to display it in Central Time. You do first need to make sure your datatime is not naive and has a timezone, perhaps when :ref:`you import it <importtime>`.
+I had data that came in UTC time, but I wanted to display it in Central Time. You first need to make sure your datatime is not naive and has a timezone, perhaps when [you import it](#add-timezone-to-a-date).
 
-In this case, I had a field `dateTime` that was in UTC, that I need to convert to Central Time. This requires  the `pytz library <http://pytz.sourceforge.net/index.html?highlight=list%20timezones#>`_, as well:
+In this case, I had a field `dateTime` that was in UTC, that I need to convert to Central Time. This requires  the [pytz library](http://pytz.sourceforge.net/index.html?highlight=list%20timezones#), as well:
 
 ``` python
+  ## Import pytz if you don't already have it
+  import pytz
+
   ## setting central time
   central = pytz.timezone('US/Central')
 
-  ## formula to do the converstion from the 'dateTime' field
-  time_shifter = agate.Formula(agate.DateTime(), lambda r: r['dateTime'].astimezone(central))
+  ## formula to do the conversion from the 'dateTime' field
+  time_shifter = agate.Formula(
+    agate.DateTime(),
+    lambda r: r['dateTime'].astimezone(central)
+    )
 
   ## create column and call the formula above
   flow_central = flow_data.compute([
-          ('CentralTime', time_shifter),
+          ('Central Time', time_shifter),
       ])
 ```
 
@@ -85,7 +87,7 @@ This gives me the new column `Central Time`.
 ## Rewrite date/time in another format
 
 
-I had a case where my Tableau did not understand the "native" datetime format (2017-08-26 22:00:00-05:00) that was exported to csv, so I had to create a new "pretty" date column (2017-08-26 22:00:00). I had lots of challenges because I could not format both a time and date `.stftime()` from the `.date()` method, nor the `.time()` method. It would only understand it's own type. So, I created strings of the date and the time and then put them together. Since I was exporting, it didn't matter that it was text and not a true datetime object.:
+I had a case where Tableau did not understand the "native" datetime format (2017-08-26 22:00:00-05:00) that was exported to csv, so I had to create a new "pretty" date column (2017-08-26 22:00:00). I had lots of challenges because I could not format both a time and date `.stftime()` from the `.date()` method, nor the `.time()` method. It would only understand it's own type. So, I created strings of the date and the time and then put them together. Since I was exporting, it didn't matter that it was text and not a true datetime object.:
 
 ``` python
   # create a tableau-friendly date
