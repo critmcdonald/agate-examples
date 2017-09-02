@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Compute - Agate examples</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">Agate examples</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../imports/">Imports</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../filters/">Filters</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Compute</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../filters/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="prev" >
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#new-columns-using-compute">New columns: Using .compute()</a></li>
+        
+            <li><a href="#zfill-fix-zero-padded-ids">zfill: Fix zero-padded IDs</a></li>
+        
+            <li><a href="#mapped-translation">Mapped translation</a></li>
+        
+            <li><a href="#converting-timezones">Converting timezones</a></li>
+        
+            <li><a href="#rewrite-datetime-in-another-format">Rewrite date/time in another format</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="new-columns-using-compute">New columns: Using .compute()</h1>
+<p>Creating new columns based on something in the data.</p>
+<p>[I need to explain a basic .compute() here.]</p>
+<p>Items to add:</p>
+<ul>
+<li>new date?</li>
+</ul>
+<h2 id="zfill-fix-zero-padded-ids">zfill: Fix zero-padded IDs</h2>
+<p>In school data from TEA, the <code>Campus_ID</code> column is supposed to be a 9-digit column, and any school that is less than that should have zeros at the beginning. Sometimes .csv files saved from Excel loose this zero padding, but we can replace it:</p>
+<pre><code>  zfilled = nodistrict.compute([
+      ('New_Campus_ID', agate.Formula(agate.Text(), lambda r: r['CAMPUS'].zfill(9))),
+      ('New_District_ID', agate.Formula(agate.Text(), lambda r: r['DISTRICT'].zfill(6)))
+  ])
+</code></pre>
+
+<p>For the first one, we created <code>New_Campus_ID</code> by going through the <code>Campus</code> column and using the Python method <code>.zfill()</code> to set the number of characters to pad with zeros. For <code>['Campus']</code> we used <code>9</code> and for <code>['District']</code> we use <code>6</code>.</p>
+<h2 id="mapped-translation">Mapped translation</h2>
+<p>We want to create a new field that inserts the longer explanation based on the a one-letter designation in the data.</p>
+<p>First we have the map:</p>
+<pre><code class="python">  rating_map = {
+      'I': 'Improvement required',
+      'M': 'Met standard',
+      'A': 'Met alternative standard',
+      'X': 'Not rated',
+      'Z': 'Not rated',
+      '': 'Not rated'
+  }
+</code></pre>
+
+<p>Then we need a function that we will run the compute through to get the proper rating match:</p>
+<pre><code class="python">  def map_rating(rating):
+      rating = rating.strip()
+      return rating_map[rating]
+</code></pre>
+
+<p>Then we create the new table. We are looking at the field <code>C_RATING</code> for the single-letter values. (This was originally used as a method on an export command, so it should be tested in this configuration):</p>
+<pre><code class="python">  rated = unrated.compute([
+      ('mapped_rating',
+       agate.Formula(agate.Text(),
+       lambda r: map_rating(r['C_RATING']))
+      )
+  ])
+</code></pre>
+
+<p>In then end, we have a new column called <code>mapped_rating</code> that includes values like "Met Standard".</p>
+<h2 id="converting-timezones">Converting timezones</h2>
+<p>I had data that came in UTC time, but I wanted to display it in Central Time. You do first need to make sure your datatime is not naive and has a timezone, perhaps when :ref:<code>you import it &lt;importtime&gt;</code>.</p>
+<p>In this case, I had a field <code>dateTime</code> that was in UTC, that I need to convert to Central Time. This requires  the <code>pytz library &lt;http://pytz.sourceforge.net/index.html?highlight=list%20timezones#&gt;</code>_, as well:</p>
+<pre><code class="python">  ## setting central time
+  central = pytz.timezone('US/Central')
+
+  ## formula to do the converstion from the 'dateTime' field
+  time_shifter = agate.Formula(agate.DateTime(), lambda r: r['dateTime'].astimezone(central))
+
+  ## create column and call the formula above
+  flow_central = flow_data.compute([
+          ('CentralTime', time_shifter),
+      ])
+</code></pre>
+
+<p>This gives me the new column <code>Central Time</code>.</p>
+<h2 id="rewrite-datetime-in-another-format">Rewrite date/time in another format</h2>
+<p>I had a case where my Tableau did not understand the "native" datetime format (2017-08-26 22:00:00-05:00) that was exported to csv, so I had to create a new "pretty" date column (2017-08-26 22:00:00). I had lots of challenges because I could not format both a time and date <code>.stftime()</code> from the <code>.date()</code> method, nor the <code>.time()</code> method. It would only understand it's own type. So, I created strings of the date and the time and then put them together. Since I was exporting, it didn't matter that it was text and not a true datetime object.:</p>
+<pre><code class="python">  # create a tableau-friendly date
+  flow_central = flow_central.compute([
+          ('Measurement time', agate.Formula(agate.Text(),
+                                       lambda r: str(r['CentralTime'].date())\
+                                       + &quot; &quot; \
+                                       + str(r['CentralTime'].time()))) 
+      ])
+</code></pre></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
