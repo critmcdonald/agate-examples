@@ -5,8 +5,7 @@ Creating new columns based on something in the data.
 
 This extends the [.compute() examples](http://agate.readthedocs.io/en/1.6.0/cookbook/compute.html)
 
-zfill: Fix zero-padded IDs
---------------------------
+## zfill: Fix zero-padded IDs
 
 In school data from TEA, the `Campus_ID` column is supposed to be a 9-digit column, and any school that is less than that should have zeros at the beginning. Sometimes .csv files saved from Excel loose this zero padding, but we can replace it:
 

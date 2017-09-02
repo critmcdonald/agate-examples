@@ -1,10 +1,10 @@
 Imports & Exports
 =================
 
-To do:
+> To do:
 
-* add xlsx hints, if any 
-* add a loop of imports for a series of files that are similar except for an id or filename. So I can update the list of IDs or names and they would all import, then I can `.merge()` them together.
+> * add xlsx hints, if any 
+> * add a loop of imports for a series of files that are similar except for an id or filename. So I can update the list of IDs or names and they would all import, then I can `.merge()` them together.
 
 
 ## Set column type
