@@ -1,0 +1,6 @@
+site_name: Agate examples
+pages:
+- Home: index.md
+- Imports: imports.md
+- Filters: filters.md
+- Compute: compute.md
