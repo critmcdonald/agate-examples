@@ -4,25 +4,25 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta name="description" content="None">
         
         
         <link rel="shortcut icon" href="./img/favicon.ico">
-
-	<title>Agate examples</title>
-
+        <title>Agate examples</title>
         <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="./css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="./css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="./css/highlight.css">
-
+        <link href="./extra.css" rel="stylesheet">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-
-        
+	
+	<script src="./js/jquery-1.10.2.min.js"></script>
+        <script src="./js/bootstrap-3.0.3.min.js"></script>
+        <script src="./js/highlight.pack.js"></script> 
     </head>
 
     <body class="homepage">
@@ -32,7 +32,6 @@
 
         <!-- Collapsed navigation -->
         <div class="navbar-header">
-            
             <!-- Expander button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -40,44 +39,26 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
-
-            <!-- Main title -->
             <a class="navbar-brand" href=".">Agate examples</a>
         </div>
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
-            
                 <!-- Main navigation -->
                 <ul class="nav navbar-nav">
-                
-                
                     <li class="active">
                         <a href=".">Home</a>
                     </li>
-                
-                
-                
                     <li >
                         <a href="imports/">Imports</a>
                     </li>
-                
-                
-                
                     <li >
                         <a href="filters/">Filters</a>
                     </li>
-                
-                
-                
                     <li >
                         <a href="compute/">Compute</a>
                     </li>
-                
-                
                 </ul>
-            
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -85,7 +66,6 @@
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
-                
                     <li class="disabled">
                         <a rel="next" >
                             <i class="fa fa-arrow-left"></i> Previous
@@ -96,81 +76,76 @@
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
-                
-                
             </ul>
         </div>
     </div>
 </div>
 
         <div class="container">
-            
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-    
-        <li class="main active"><a href="#welcome-to-agate-examples">Welcome to agate-examples</a></li>
-        
+        <li class="main active"><a href="#welcome-to-agate-examples">Welcome to Agate Examples</a></li>
+            <li><a href="#about-the-author">About the author</a></li>
             <li><a href="#a-start">A start</a></li>
-        
-    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-agate-examples">Welcome to agate-examples</h1>
-<p>[A very young work in progress]</p>
-<p>The goal of this site is to have a store of examples using the <a href="http://agate.readthedocs.io/en/1.6.0/">agate</a> Python library. While the <a href="http://agate.readthedocs.io/en/1.6.0/cookbook.html">Cookbook</a> and <a href="https://github.com/wireservice/agate/blob/master/tutorial.ipynb">Tutorial</a> have some good examples, these are variations that I would like to remember. Perhaps others can benefit from this as well.</p>
+<h1 id="welcome-to-agate-examples">Welcome to Agate Examples</h1>
+<p>This is a young work in progress.</p>
+<p>This site is a an unofficial extension of the <a href="http://agate.readthedocs.io/en/1.6.0/">agate</a> Python library. While the <a href="http://agate.readthedocs.io/en/1.6.0/cookbook.html">Cookbook</a> and <a href="https://github.com/wireservice/agate/blob/master/tutorial.ipynb">Tutorial</a> are a good start to learning and using agates, these pages are a compendium of examples and variations that I would like to remember. Perhaps they are useful to others, as well.</p>
+<p>I use <a href="http://agate.readthedocs.io/en/1.6.0/">agate</a> in my work at the Statesman to build transparent, repeatable data pipelines and analysis in the course of reporting, usually in conjuction with <a href="http://jupyter.org/">Jypter Notebooks</a>.</p>
+<p>Some examples:</p>
+<ul>
+<li><a href="https://github.com/statesman/mixbev-receipts/blob/master/notebooks/Mixed-beverages-2017-06.ipynb">Mixed Beverage Receipts</a></li>
+<li><a href="https://github.com/statesman/oil-spills/blob/master/Spills.ipynb">Oil spill data</a> as it related to the Magellan Midstream Partners spill of July 13 in Bastrop County.</li>
+<li><a href="https://github.com/statesman/tx-school-data/blob/master/processing/2017-texas-school-accountability-data.ipynb">Texas public school accountability ratings</a></li>
+</ul>
+<h2 id="about-the-author">About the author</h2>
+<p>My name is Christian McDonald, and I am the data editor at the Austin American-Stateman and an adjunct professor that the UT-Austin School of Journalism, where I teach a data journalism class.</p>
 <h2 id="a-start">A start</h2>
 <ul>
-<li><a href="import.md">import</a></li>
-<li><a href="filters/">filters</a></li>
-<li><a href="compute/">compute</a></li>
+<li><a href="imports/">Imports</a></li>
+<li><a href="filters/">Filters</a></li>
+<li><a href="compute/">New columns</a></li>
 </ul></div>
-            
         </div>
 
         <footer class="col-md-12">
             <hr>
-            
             <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-
-        <script src="./js/jquery-1.10.2.min.js"></script>
-        <script src="./js/bootstrap-3.0.3.min.js"></script>
-        <script src="./js/highlight.pack.js"></script>
         <script>var base_url = '.';</script>
         <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
-        <script src="./js/base.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+        <script src="./js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
                     </div>
-                    <div class="modal-body">
-                        <p>
-                            From here you can search these documents. Enter
-                            your search terms below.
-                        </p>
-                        <form role="form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                            </div>
-                        </form>
-                        <div id="mkdocs-search-results"></div>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
             </div>
         </div>
+    </div>
+</div>
 
     </body>
 </html>
 
 <!--
-MkDocs version : 0.14.0
-Build Date UTC : 2017-09-02 02:29:20.672088
+MkDocs version : 0.16.3
+Build Date UTC : 2017-09-02 03:26:52
 -->
