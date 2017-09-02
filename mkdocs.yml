@@ -4,3 +4,5 @@ pages:
 - Imports: imports.md
 - Filters: filters.md
 - Compute: compute.md
+extra_css:
+    - extra.css
