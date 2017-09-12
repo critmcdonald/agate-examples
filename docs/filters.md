@@ -11,7 +11,7 @@ Examples for the [.where()](http://agate.readthedocs.io/en/1.6.0/cookbook/filter
 Most of these examples are where I am creating a new table with a subselection of rows from the base table:
 
 ``` python
-  newtable = oldtable.where(lamda row: row['Column_Name'] == 'something')
+  newtable = oldtable.where(lambda row: row['Column_Name'] == 'something')
 ```
 
 Lamda is a function that happens just once in place. In the example above, I'm looking through each row, specifically at the column ``Column_Name`` for the text 'something'. If it matches, I keep it and put it in the newtable. If not, it is discarded.
