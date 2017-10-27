@@ -68,3 +68,32 @@ In this case, I wanted only rows where the `CentralTime` date was on or after Au
       lambda row: datetime.date(2017, 8, 25) <= row['CentralTime'].date()
       )
 ```
+
+## Filter by list of items
+
+I this case, I want rows that match items out of a list, i.e., I rows only from Austin MSA counties.
+
+``` python
+# list of counties to keep
+county_list = [
+    "Bastrop",
+    "Caldwell",
+    "Hays",
+    "Travis",
+    "Williamson"
+]
+
+# function to test a column value against a list
+def list_filter(row, list_to_check):
+    if row is None:
+        return True
+    myList = row.split(',')
+    for item in myList:
+        if item not in list_to_check:
+            return False
+    return True
+
+# Pass in the column to check, and then the list. Only true rows pass.
+austin_msa = raw.where(lambda row: list_filter(row['County'], county_list))
+
+```
