@@ -4,6 +4,7 @@ pages:
 - Imports: imports.md
 - Filters: filters.md
 - Compute: compute.md
+- Sorting: sort.md
 theme: readthedocs
 extra_css:
     - extra.css
