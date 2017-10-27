@@ -19,6 +19,15 @@ More often than not I have to set some of the columns to a specific data type wh
   table = agate.Table.from_csv('filename.csv', column_types=specified_types)
 ```
 
+## Set date format
+
+```python
+specified_types = {
+    'date_col': agate.Date('%Y%m%d'),
+}
+```
+And set the value inside `.Date()` based on [strftime formats](http://strftime.org/).
+
 ## Add timezone to a date
 
 I had a case where my original data was in UTC time, but I needed to convert it to Central time. According to [agate docs on dates](http://agate.readthedocs.io/en/1.6.0/cookbook/datetime.html), it imports dates naive of timezone, so you have to set it to a specific timezone before you can convert it to a different one:
