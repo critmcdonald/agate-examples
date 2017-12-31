@@ -1,105 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Compute - Agate examples</title>
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="../css/highlight.css">
-        <link href="../extra.css" rel="stylesheet">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-	
-	<script src="../js/jquery-1.10.2.min.js"></script>
-        <script src="../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../js/highlight.pack.js"></script> 
-    </head>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Compute - Agate examples</title>
+  
 
-    <body>
+  <link rel="shortcut icon" href="../img/favicon.ico">
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="..">Agate examples</a>
-        </div>
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
 
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                    <li >
-                        <a href="..">Home</a>
-                    </li>
-                    <li >
-                        <a href="../imports/">Imports</a>
-                    </li>
-                    <li >
-                        <a href="../filters/">Filters</a>
-                    </li>
-                    <li class="active">
-                        <a href="./">Compute</a>
-                    </li>
-                </ul>
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Compute";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
 
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
-                    </a>
-                </li>
-                    <li >
-                        <a rel="next" href="../filters/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li class="disabled">
-                        <a rel="prev" >
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-            </ul>
-        </div>
-    </div>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Agate examples</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
 </div>
+      </div>
 
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#new-columns-using-compute">New columns: Using .compute()</a></li>
-            <li><a href="#zfill-fix-zero-padded-ids">zfill: Fix zero-padded IDs</a></li>
-            <li><a href="#mapped-translation">Mapped translation</a></li>
-            <li><a href="#converting-timezones">Converting timezones</a></li>
-            <li><a href="#rewrite-datetime-in-another-format">Rewrite date/time in another format</a></li>
-    </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../imports/">Imports</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../filters/">Filters</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Compute</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#new-columns-using-compute">New columns: Using .compute()</a></li>
+                
+                    <li><a class="toctree-l4" href="#zfill-fix-zero-padded-ids">zfill: Fix zero-padded IDs</a></li>
+                
+                    <li><a class="toctree-l4" href="#mapped-translation">Mapped translation</a></li>
+                
+                    <li><a class="toctree-l4" href="#converting-timezones">Converting timezones</a></li>
+                
+                    <li><a class="toctree-l4" href="#rewrite-datetime-in-another-format">Rewrite date/time in another format</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../sort/">Sorting</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
 
-<h1 id="new-columns-using-compute">New columns: Using .compute()</h1>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Agate examples</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Compute</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="new-columns-using-compute">New columns: Using .compute()</h1>
 <p>Creating new columns based on something in the data.</p>
-<p>[I need to explain a basic .compute() here.]</p>
-<p>Items to add:</p>
-<ul>
-<li>new date?</li>
-</ul>
+<p>This extends the <a href="http://agate.readthedocs.io/en/1.6.0/cookbook/compute.html">.compute() examples</a></p>
 <h2 id="zfill-fix-zero-padded-ids">zfill: Fix zero-padded IDs</h2>
 <p>In school data from TEA, the <code>Campus_ID</code> column is supposed to be a 9-digit column, and any school that is less than that should have zeros at the beginning. Sometimes .csv files saved from Excel loose this zero padding, but we can replace it:</p>
 <pre><code>  zfilled = nodistrict.compute([
@@ -108,9 +143,9 @@
   ])
 </code></pre>
 
-<p>For the first one, we created <code>New_Campus_ID</code> by going through the <code>Campus</code> column and using the Python method <code>.zfill()</code> to set the number of characters to pad with zeros. For <code>['Campus']</code> we used <code>9</code> and for <code>['District']</code> we use <code>6</code>.</p>
+<p>For the first one, we created <code>New_Campus_ID</code> by going through the <code>Campus</code> column and using the Python method <code>.zfill()</code> to set pad any <code>Campus</code> that wasn't 9 characters. For  <code>['District']</code> we used "6".</p>
 <h2 id="mapped-translation">Mapped translation</h2>
-<p>We want to create a new field that inserts the longer explanation based on the a one-letter designation in the data.</p>
+<p>We wanted to create a new field that inserts the longer explanation based on the a one-letter designation in the data.</p>
 <p>First we have the map:</p>
 <pre><code class="python">  rating_map = {
       'I': 'Improvement required',
@@ -139,23 +174,29 @@
 
 <p>In then end, we have a new column called <code>mapped_rating</code> that includes values like "Met Standard".</p>
 <h2 id="converting-timezones">Converting timezones</h2>
-<p>I had data that came in UTC time, but I wanted to display it in Central Time. You do first need to make sure your datatime is not naive and has a timezone, perhaps when :ref:<code>you import it &lt;importtime&gt;</code>.</p>
-<p>In this case, I had a field <code>dateTime</code> that was in UTC, that I need to convert to Central Time. This requires  the <code>pytz library &lt;http://pytz.sourceforge.net/index.html?highlight=list%20timezones#&gt;</code>_, as well:</p>
-<pre><code class="python">  ## setting central time
+<p>I had data that came in UTC time, but I wanted to display it in Central Time. You first need to make sure your datatime is not naive and has a timezone, perhaps when <a href="#add-timezone-to-a-date">you import it</a>.</p>
+<p>In this case, I had a field <code>dateTime</code> that was in UTC, that I need to convert to Central Time. This requires  the <a href="http://pytz.sourceforge.net/index.html?highlight=list%20timezones#">pytz library</a>, as well:</p>
+<pre><code class="python">  ## Import pytz if you don't already have it
+  import pytz
+
+  ## setting central time
   central = pytz.timezone('US/Central')
 
-  ## formula to do the converstion from the 'dateTime' field
-  time_shifter = agate.Formula(agate.DateTime(), lambda r: r['dateTime'].astimezone(central))
+  ## formula to do the conversion from the 'dateTime' field
+  time_shifter = agate.Formula(
+    agate.DateTime(),
+    lambda r: r['dateTime'].astimezone(central)
+    )
 
   ## create column and call the formula above
   flow_central = flow_data.compute([
-          ('CentralTime', time_shifter),
+          ('Central Time', time_shifter),
       ])
 </code></pre>
 
 <p>This gives me the new column <code>Central Time</code>.</p>
 <h2 id="rewrite-datetime-in-another-format">Rewrite date/time in another format</h2>
-<p>I had a case where my Tableau did not understand the "native" datetime format (2017-08-26 22:00:00-05:00) that was exported to csv, so I had to create a new "pretty" date column (2017-08-26 22:00:00). I had lots of challenges because I could not format both a time and date <code>.stftime()</code> from the <code>.date()</code> method, nor the <code>.time()</code> method. It would only understand it's own type. So, I created strings of the date and the time and then put them together. Since I was exporting, it didn't matter that it was text and not a true datetime object.:</p>
+<p>I had a case where Tableau did not understand the "native" datetime format (2017-08-26 22:00:00-05:00) that was exported to csv, so I had to create a new "pretty" date column (2017-08-26 22:00:00). I had lots of challenges because I could not format both a time and date <code>.stftime()</code> from the <code>.date()</code> method, nor the <code>.time()</code> method. It would only understand it's own type. So, I created strings of the date and the time and then put them together. Since I was exporting, it didn't matter that it was text and not a true datetime object.:</p>
 <pre><code class="python">  # create a tableau-friendly date
   flow_central = flow_central.compute([
           ('Measurement time', agate.Formula(agate.Text(),
@@ -163,39 +204,50 @@
                                        + &quot; &quot; \
                                        + str(r['CentralTime'].time()))) 
       ])
-</code></pre></div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>var base_url = '..';</script>
-        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
-        <script src="../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+</code></pre>
+              
             </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sort/" class="btn btn-neutral float-right" title="Sorting"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../filters/" class="btn btn-neutral" title="Filters"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
     </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../filters/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../sort/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
 </div>
 
-    </body>
+</body>
 </html>

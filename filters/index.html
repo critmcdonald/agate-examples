@@ -1,124 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Filters - Agate examples</title>
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="../css/highlight.css">
-        <link href="../extra.css" rel="stylesheet">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-	
-	<script src="../js/jquery-1.10.2.min.js"></script>
-        <script src="../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../js/highlight.pack.js"></script> 
-    </head>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Filters - Agate examples</title>
+  
 
-    <body>
+  <link rel="shortcut icon" href="../img/favicon.ico">
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="..">Agate examples</a>
-        </div>
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
 
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                    <li >
-                        <a href="..">Home</a>
-                    </li>
-                    <li >
-                        <a href="../imports/">Imports</a>
-                    </li>
-                    <li class="active">
-                        <a href="./">Filters</a>
-                    </li>
-                    <li >
-                        <a href="../compute/">Compute</a>
-                    </li>
-                </ul>
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Filters";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
 
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
-                    </a>
-                </li>
-                    <li >
-                        <a rel="next" href="../imports/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../compute/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-            </ul>
-        </div>
-    </div>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Agate examples</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
 </div>
+      </div>
 
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#filters-using-where">Filters: Using .where()</a></li>
-            <li><a href="#where-boolean-field-is-true">Where boolean field is True</a></li>
-            <li><a href="#where-boolean-field-is-not-true">Where boolean field is not True</a></li>
-            <li><a href="#by-position-in-string">By position in string</a></li>
-            <li><a href="#check-for-blank-cells">Check for blank cells</a></li>
-            <li><a href="#filter-by-date">Filter by date</a></li>
-    </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../imports/">Imports</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Filters</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#filters-using-where">Filters: Using .where()</a></li>
+                
+                    <li><a class="toctree-l4" href="#where-boolean-field-is-true">Where boolean field is True</a></li>
+                
+                    <li><a class="toctree-l4" href="#where-boolean-field-is-not-true">Where boolean field is not True</a></li>
+                
+                    <li><a class="toctree-l4" href="#by-position-in-string">By position in string</a></li>
+                
+                    <li><a class="toctree-l4" href="#check-for-blank-cells">Check for blank cells</a></li>
+                
+                    <li><a class="toctree-l4" href="#filter-by-date">Filter by date</a></li>
+                
+                    <li><a class="toctree-l4" href="#filter-by-list-of-items">Filter by list of items</a></li>
+                
+                    <li><a class="toctree-l4" href="#distinct-values-of-a-column">Distinct values of a column</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../compute/">Compute</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../sort/">Sorting</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
 
-<h1 id="filters-using-where">Filters: Using .where()</h1>
-<p>Most of these examples are where I am creating a new table with a subselection of rows from the base table:</p>
-<pre><code class="python">  newtable = oldtable.where(lamda row: row['Column_Name'] == 'something')
-</code></pre>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<p>Lamda is a function that happens just once in place. In the example above, I'm looking through each row, specifically at the column <code>Column_Name</code> for the text 'something'. If it matches, I keep it and put it in the newtable. If not, it is discarded.</p>
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Agate examples</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Filters</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="filters-using-where">Filters: Using .where()</h1>
+<blockquote>
 <p>To add here:</p>
 <ul>
 <li>where between dates</li>
 <li>grep</li>
-<li>figure out how to use <code>.values_distinct()</code> in such a way it makes a nice list.</li>
 </ul>
+</blockquote>
+<p>Examples for the <a href="http://agate.readthedocs.io/en/1.6.0/cookbook/filter.html">.where()</a> method.</p>
+<p>Most of these examples are where I am creating a new table with a subselection of rows from the base table:</p>
+<pre><code class="python">  newtable = oldtable.where(lambda row: row['Column_Name'] == 'something')
+</code></pre>
+
+<p>Lamda is a function that happens just once in place. In the example above, I'm looking through each row, specifically at the column <code>Column_Name</code> for the text 'something'. If it matches, I keep it and put it in the newtable. If not, it is discarded.</p>
 <h2 id="where-boolean-field-is-true">Where boolean field is True</h2>
 <p>Checking if a boolean field is true or false:</p>
 <pre><code class="python">  charters = campus.where(lambda row: row['CFLCHART'] == 1)
 </code></pre>
 
-<p>(Question to self: Test of this will work as ``== True```.)</p>
+<blockquote>
+<p>Note to self: Test if this will work as <code>== True</code>.</p>
+</blockquote>
 <h2 id="where-boolean-field-is-not-true">Where boolean field is not True</h2>
 <p>When you want fields that don't match your test.:</p>
-<pre><code class="python">traditional = campus.where(lambda row: row['CFLCHART'] != 1)
+<pre><code class="python">  traditional = campus.where(lambda row: row['CFLCHART'] != 1)
 </code></pre>
 
 <p>In this case, we are testing 'CFLCHART' to make sure it does NOT equal 1.</p>
-<p>(Note to self: Test if this would catch nulls.)</p>
+<blockquote>
+<p>Note to self: Test if this would catch nulls.)</p>
+</blockquote>
 <h2 id="by-position-in-string">By position in string</h2>
 <p>If you want to look at a specific position in a string and then check it:</p>
 <pre><code class="python">  charters = campus.where(lambda row: row['Campus_ID'][3] == '8')
@@ -131,46 +181,92 @@
 </code></pre>
 
 <h2 id="filter-by-date">Filter by date</h2>
-<p>In this case, I wanted only rows that had a <code>CentralTime</code> date on or after August 25. The trick here was importing <code>datetime</code>, and setting that reference as below. It wasn't intuitive for me from the docs.:</p>
-<pre><code class="python">    import datetime
+<p>In this case, I wanted only rows where the <code>CentralTime</code> date was on or after August 25. The trick here was importing <code>datetime</code>, and setting that reference as below. It wasn't intuitive for me from the docs.</p>
+<pre><code class="python">  import datetime
 
-    # filter for Aug. 25th or later
-    flow_harvey = flow_central.where(
-        lambda row: datetime.date(2017, 8, 25) &lt;= row['CentralTime'].date()
-        )
-</code></pre></div>
-        </div>
+  # filter for Aug. 25th or later
+  flow_harvey = flow_central.where(
+      lambda row: datetime.date(2017, 8, 25) &lt;= row['CentralTime'].date()
+      )
+</code></pre>
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>var base_url = '..';</script>
-        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
-        <script src="../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+<h2 id="filter-by-list-of-items">Filter by list of items</h2>
+<p>I this case, I want rows that match items out of a list, i.e., I rows only from Austin MSA counties.</p>
+<pre><code class="python"># list of counties to keep
+county_list = [
+    &quot;Bastrop&quot;,
+    &quot;Caldwell&quot;,
+    &quot;Hays&quot;,
+    &quot;Travis&quot;,
+    &quot;Williamson&quot;
+]
+
+# function to test a column value against a list
+def list_filter(row, list_to_check):
+    if row is None:
+        return True
+    myList = row.split(',')
+    for item in myList:
+        if item not in list_to_check:
+            return False
+    return True
+
+# Pass in the column to check, and then the list. Only true rows pass.
+austin_msa = raw.where(lambda row: list_filter(row['County'], county_list))
+
+</code></pre>
+
+<h2 id="distinct-values-of-a-column">Distinct values of a column</h2>
+<p>If you want to see the distinct values of a column, you can call the <code>.distinct_values()</code> method on that column and see the results in a tuple.</p>
+<pre><code class="python">rated.columns['C_RATING'].values_distinct()
+</code></pre>
+
+<p><code>rated</code> is the name of the table in this case, and <code>C_RATING</code> is the column. The result looks like this:</p>
+<pre><code>('A', 'I', 'X', 'Z', 'T', 'M')
+</code></pre>
+              
             </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../compute/" class="btn btn-neutral float-right" title="Compute"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../imports/" class="btn btn-neutral" title="Imports"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
     </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../imports/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../compute/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
 </div>
 
-    </body>
+</body>
 </html>

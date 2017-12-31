@@ -1,7 +1,17 @@
-body {
-  font-size: 16px;
+body , p, ul, li {
+  font-size: 1.02em;
+}
+
+code {
+  font-size: .9em;
 }
 
 pre code {
-  font-size: 110%;
+  font-size: .9em;
+}
+
+blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: 0.25em solid #dfe2e5;
 }
