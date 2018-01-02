@@ -4,7 +4,6 @@
 
 > * where between dates
 > * grep
-> * figure out how to use ``.values_distinct()`` in such a way it makes a nice list.
 
 Examples for the [.where()](http://agate.readthedocs.io/en/1.6.0/cookbook/filter.html) method.
 
@@ -97,3 +96,17 @@ def list_filter(row, list_to_check):
 austin_msa = raw.where(lambda row: list_filter(row['County'], county_list))
 
 ```
+
+## Distinct values of a column
+
+If you want to see the distinct values of a column, you can call the `.distinct_values()` method on that column and see the results in a tuple.
+
+``` python
+rated.columns['C_RATING'].values_distinct()
+```
+
+`rated` is the name of the table in this case, and `C_RATING` is the column. The result looks like this:
+
+```
+('A', 'I', 'X', 'Z', 'T', 'M')
+``` 
