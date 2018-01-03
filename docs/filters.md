@@ -70,32 +70,18 @@ In this case, I wanted only rows where the `CentralTime` date was on or after Au
 
 ## Filter by list of items
 
-I this case, I want rows that match items out of a list, i.e., I rows only from Austin MSA counties.
+In this case I only want rows that do NOT match the values in the list.
 
 ``` python
-# list of counties to keep
-county_list = [
-    "Bastrop",
-    "Caldwell",
-    "Hays",
-    "Travis",
-    "Williamson"
-]
-
-# function to test a column value against a list
-def list_filter(row, list_to_check):
-    if row is None:
-        return True
-    myList = row.split(',')
-    for item in myList:
-        if item not in list_to_check:
-            return False
-    return True
-
-# Pass in the column to check, and then the list. Only true rows pass.
-austin_msa = raw.where(lambda row: list_filter(row['County'], county_list))
+new_table = old_table.where(lambda row: row['Column name'] not in [
+    'ALTERNATIVE',
+    'PRIMARY'
+])
 
 ```
+
+- You could change `not in` to just `in` to filter the results for positive matches.
+- You could create a variable to hold the list and then pass that into the `where` statement.
 
 ## Distinct values of a column
 
