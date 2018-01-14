@@ -5,6 +5,7 @@ pages:
 - Filters: filters.md
 - Compute: compute.md
 - Sorting: sort.md
+- Rounding: rounding.md
 theme: readthedocs
 extra_css:
     - extra.css
