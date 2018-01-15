@@ -1,9 +1,7 @@
 New columns: Using .compute()
 =============================
 
-Creating new columns based on something in the data.
-
-This extends the [.compute() examples](http://agate.readthedocs.io/en/1.6.0/cookbook/compute.html)
+This provides some examples of the [.compute() method](http://agate.readthedocs.io/en/1.6.0/cookbook/compute.html), which allows you to create new columns based on a value already in the data.
 
 ## zfill: Fix zero-padded IDs
 

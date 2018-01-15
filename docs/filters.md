@@ -82,17 +82,3 @@ new_table = old_table.where(lambda row: row['Column name'] not in [
 
 - You could change `not in` to just `in` to filter the results for positive matches.
 - You could create a variable to hold the list and then pass that into the `where` statement.
-
-## Distinct values of a column
-
-If you want to see the distinct values of a column, you can call the `.distinct_values()` method on that column and see the results in a tuple.
-
-``` python
-rated.columns['C_RATING'].values_distinct()
-```
-
-`rated` is the name of the table in this case, and `C_RATING` is the column. The result looks like this:
-
-```
-('A', 'I', 'X', 'Z', 'T', 'M')
-``` 
