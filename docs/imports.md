@@ -4,7 +4,6 @@ Imports & Exports
 > To do:
 
 > * add xlsx hints, if any 
-> * add a loop of imports for a series of files that are similar except for an id or filename. So I can update the list of IDs or names and they would all import, then I can `.merge()` them together. I can use our lcra-hydromet example, but perhaps with a different dataset of csvs (mixbev or hotels) for ease of understanding.
 
 ## Set column type
 
@@ -17,6 +16,35 @@ specified_types = {
 }
 
 table = agate.Table.from_csv('filename.csv', column_types=specified_types)
+```
+
+## Import multiple files and merge
+
+In this case, I had a csv file for each club. I wanted to import and combine them into a single file. For this to work, all the files have to be the same columns/types:
+
+``` python
+# Names of my files/clubs
+club_names = [
+    'cheerup_charlies',
+    'empire',
+    'mohawk',
+    'sidewinder',
+    'stubbs',
+]
+# Initiate list of tables that will be generated in the import loop
+club_tables = []
+
+# Loop to import the five files, then set them up to append
+for club in club_names:
+    club_file = "../data-orig/" + club + ".csv"
+    club_table = agate.Table.from_csv(
+      club_file,
+      column_types=specified_types #not listed here
+    )
+    club_tables.append(club_table)
+
+# Merge the tables collected in club_tables during the loop
+combo = agate.Table.merge(club_tables)
 ```
 
 ## Set date format
