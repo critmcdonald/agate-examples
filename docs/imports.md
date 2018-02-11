@@ -1,10 +1,6 @@
 Imports & Exports
 =================
 
-> To do:
-
-> * add xlsx hints, if any 
-
 ## Set column type
 
 More often than not I have to set some of the columns to a specific data type when importing. An example might be to ensure a FIPS code or ZIP is considered Text instead of a Number:

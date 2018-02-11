@@ -18,9 +18,3 @@ Some examples of how we have used agate at the Statesman:
 
 My name is [Christian McDonald](http://twitter.com/crit), and I am the data editor at the Austin American-Stateman and an adjunct professor that the UT-Austin School of Journalism, where I teach a data journalism class.
 
-## A start
-
-* [Imports](imports.md)
-* [Filters](filters.md)
-* [New columns](compute.md)
-

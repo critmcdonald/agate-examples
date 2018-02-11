@@ -36,12 +36,11 @@ First we have the map:
 Then we need a function that we will run the compute through to get the proper rating match:
 
 ``` python
-  def map_rating(rating):
-      rating = rating.strip()
-      return rating_map[rating]
+  def map_rating(c_rating):
+      return rating_map[c_rating]
 ```
 
-Then we create the new table. We are looking at the field ``C_RATING`` for the single-letter values. (This was originally used as a method on an export command, so it should be tested in this configuration):
+Then we create the new table. We are looking at the field ``C_RATING`` for the single-letter values:
 
 ``` python
   rated = unrated.compute([
