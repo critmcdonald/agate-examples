@@ -14,9 +14,17 @@ specified_types = {
 table = agate.Table.from_csv('filename.csv', column_types=specified_types)
 ```
 
+## Merge files together
+
+If you have two tables with the same columns and datatypes, you can "merge" or stack them on top of each other. You might have to adjust data types if the TypeTester was not consistent on your imports.
+
+``` python
+combined = merge([table_one, table_two])
+```
+
 ## Import multiple files and merge
 
-In this case, I had a csv file for each club. I wanted to import and combine them into a single file. For this to work, all the files have to be the same columns/types:
+In this case, I had a csv file for each club and I wanted a loop to import and combine them into a single file. For this to work, all the files have to be the same columns/types:
 
 ``` python
 # Names of my files/clubs
