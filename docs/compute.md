@@ -97,9 +97,12 @@ I had a case where Tableau did not understand the "native" datetime format (2017
 
 ## Reshaping table to collect selected columns
 
+Just laying out how ... need to add example:
+
 This is a interesting case I've had a couple of times with education data. Basically the data set starts as a basic table where each column has a separate value, but they are related in some way.  You might have a number and a percentage for each race: `White total`, `White percent`, `Black total`, `Black percent`, `Hispanic total`, `Hispanic percent`.  We want to turn those into two three columns: `Race`, `Total`, `Percentage`.
 
 There is probably a better way to do this than the way I have tackled it here. The process I'm using goes like this: 
+
 - I compute specific pipe-delimited combo columnns with related data.
 - I create a table with just the columns we need
 - Normalize the data to get a row for each combo columns
