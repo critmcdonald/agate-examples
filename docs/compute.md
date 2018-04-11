@@ -53,6 +53,43 @@ Then we create the new table. We are looking at the field ``C_RATING`` for the s
 
 In then end, we have a new column called ``mapped_rating`` that includes values like "Met Standard".
 
+## New table through loop for filtering
+
+In this case, I'm creating a new table based on a series of filters, while adding a column to identify each filter. (Otherwise this would be a simple [filter by list of items](../filters/#filter-by-list-of-items).)
+
+
+``` python
+# This is the list of things we need to reference. The first value is a slug I'm making in the new table. The second is the value I'm matching on for the filter.
+club_tuple = (
+    ("CheerUp", "900 RED RIVER ST"),
+    ("Empire", "606 E 7TH ST"),
+    ("Mohawk", "912 RED RIVER ST"),
+    ("Sidewinder", "715 RED RIVER ST"), # was also RED EYED FLY
+    ("Stubbs", "801 RED RIVER ST"),
+)
+
+# Idea here is to make a function that would walk through club_tuple
+# and create a table with the values form each pass.
+
+# List of tables that will be generated in the import loop
+club_tables = []
+
+# Loop to import the five files, then set them up to append
+##### I MIGHT NEED TO CHANGE THIS TO FILTER BY ADDRESS TO HANDLE NAME CHANGES
+for club in club_tuple:
+    # filter for slub
+    club_table = mixbev.where(lambda r: r['Address'] == club[1])
+    club_slugged = club_table.compute([
+        ('Slug', agate.Formula(agate.Text(), lambda r: club[0])),
+    ])
+    club_tables.append(club_slugged)
+    #     club_tables.append(mixbev.where(lambda r: r['Establishment'] == club[1])) 
+
+# Merges the tables collected in club_tables during the loop
+clubs_of_interest = agate.Table.merge(club_tables)
+```
+
+
 ## Converting timezones
 
 I had data that came in UTC time, but I wanted to display it in Central Time. You first need to make sure your datatime is not naive and has a timezone, perhaps when [you import it](#add-timezone-to-a-date).
