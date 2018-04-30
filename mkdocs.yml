@@ -7,6 +7,7 @@ pages:
 - Sorting: sort.md
 - Rounding: rounding.md
 - Distinct: distinct.md
+- Jupyter: jupyter.md
 theme: readthedocs
 extra_css:
     - extra.css
