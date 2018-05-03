@@ -14,6 +14,29 @@ specified_types = {
 table = agate.Table.from_csv('filename.csv', column_types=specified_types)
 ```
 
+## import from specic excel sheet
+
+Importing from Excel requires an additional agate package called [agate-excel](http://agate-excel.readthedocs.io/en/0.2.2/), which then has to be imported. This is covered fairly well in the [Cookbook](http://agate.readthedocs.io/en/1.6.0/cookbook/create.html#from-an-excel-spreadsheet).
+
+```python
+import agateexcel
+
+data_table = agate.Table.from_xls('file.xls', sheet='data')
+# use from_xlsx for newer Excel file types
+```
+
+I've gotten a bunch of warning messages the first time I've run code with `agateexcel` about the path of the module, but it still works and warnings do not reappear on subsequent runnings within the same session.
+
+## skip lines on import
+
+Sometimes you headers, descriptions or notes in a spreadsheet before the data starts. You can skip those lines on import
+
+```python
+data_table = agate.Table.from_xls('file.xls', skip_lines=2)
+```
+
+
+
 ## Merge files together
 
 If you have two tables with the same columns and datatypes, you can "merge" or stack them on top of each other. You might have to adjust data types if the TypeTester was not consistent on your imports.
