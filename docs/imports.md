@@ -139,29 +139,30 @@ Note you need a key, which is the part of the json file that defines the list of
 
 My data looked like this:
 
-  {
-      "siteId":"08154700",
-      "siteNumber":"08154700",
-      "siteName":"Bull Ck at Loop 360 nr Austin, TX",
-      "bankFullStage":5,
-      "value1Type":"Stage",
-      "value2Type":"Flow",
-      "records":[
-          {
-              "dateTime":"2017-08-27T03:00:00Z",
-              "value1":4.46,
-              "value1Qualifier":"P",
-              "value2":414.00,
-              "value2Qualifier":"P"
-          },
-          {
-              "dateTime":"2017-08-27T02:55:00Z",
-              "value1":4.38,
-              "value1Qualifier":"P",
-              "value2":383.00,
-              "value2Qualifier":"P"
-      }
-  ]}
-
+``` json
+{
+    "siteId":"08154700",
+    "siteNumber":"08154700",
+    "siteName":"Bull Ck at Loop 360 nr Austin, TX",
+    "bankFullStage":5,
+    "value1Type":"Stage",
+    "value2Type":"Flow",
+    "records":[
+        {
+            "dateTime":"2017-08-27T03:00:00Z",
+            "value1":4.46,
+            "value1Qualifier":"P",
+            "value2":414.00,
+            "value2Qualifier":"P"
+        },
+        {
+            "dateTime":"2017-08-27T02:55:00Z",
+            "value1":4.38,
+            "value1Qualifier":"P",
+            "value2":383.00,
+            "value2Qualifier":"P"
+    }
+]}
+```
 I only needed the "records" nodes for my table, so the value I needed for the key was `records`. I'm not even sure how I would get the other information at the top.
 

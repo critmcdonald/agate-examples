@@ -23,32 +23,32 @@ We wanted to create a new field that inserts the longer explanation based on the
 First we have the map:
 
 ``` python
-  rating_map = {
-      'I': 'Improvement required',
-      'M': 'Met standard',
-      'A': 'Met alternative standard',
-      'X': 'Not rated',
-      'Z': 'Not rated',
-      '': 'Not rated'
-  }
+rating_map = {
+    'I': 'Improvement required',
+    'M': 'Met standard',
+    'A': 'Met alternative standard',
+    'X': 'Not rated',
+    'Z': 'Not rated',
+    '': 'Not rated'
+}
 ```
 
 Then we need a function that we will run the compute through to get the proper rating match:
 
 ``` python
-  def map_rating(c_rating):
-      return rating_map[c_rating]
+def map_rating(c_rating):
+    return rating_map[c_rating]
 ```
 
 Then we create the new table. We are looking at the field ``C_RATING`` for the single-letter values:
 
 ``` python
-  rated = unrated.compute([
-      ('mapped_rating',
-       agate.Formula(agate.Text(),
-       lambda r: map_rating(r['C_RATING']))
-      )
-  ])
+rated = unrated.compute([
+    ('mapped_rating',
+     agate.Formula(agate.Text(),
+     lambda r: map_rating(r['C_RATING']))
+    )
+])
 ```
 
 In then end, we have a new column called ``mapped_rating`` that includes values like "Met Standard".
@@ -97,22 +97,22 @@ I had data that came in UTC time, but I wanted to display it in Central Time. Yo
 In this case, I had a field `dateTime` that was in UTC, that I need to convert to Central Time. This requires  the [pytz library](http://pytz.sourceforge.net/index.html?highlight=list%20timezones#), as well:
 
 ``` python
-  ## Import pytz if you don't already have it
-  import pytz
+## Import pytz if you don't already have it
+import pytz
 
-  ## setting central time
-  central = pytz.timezone('US/Central')
+## setting central time
+central = pytz.timezone('US/Central')
 
-  ## formula to do the conversion from the 'dateTime' field
-  time_shifter = agate.Formula(
-    agate.DateTime(),
-    lambda r: r['dateTime'].astimezone(central)
-    )
+## formula to do the conversion from the 'dateTime' field
+time_shifter = agate.Formula(
+  agate.DateTime(),
+  lambda r: r['dateTime'].astimezone(central)
+  )
 
-  ## create column and call the formula above
-  flow_central = flow_data.compute([
-          ('Central Time', time_shifter),
-      ])
+## create column and call the formula above
+flow_central = flow_data.compute([
+        ('Central Time', time_shifter),
+    ])
 ```
 
 This gives me the new column `Central Time`.
@@ -123,13 +123,13 @@ This gives me the new column `Central Time`.
 I had a case where Tableau did not understand the "native" datetime format (2017-08-26 22:00:00-05:00) that was exported to csv, so I had to create a new "pretty" date column (2017-08-26 22:00:00). I had lots of challenges because I could not format both a time and date `.stftime()` from the `.date()` method, nor the `.time()` method. It would only understand it's own type. So, I created strings of the date and the time and then put them together. Since I was exporting, it didn't matter that it was text and not a true datetime object.:
 
 ``` python
-  # create a tableau-friendly date
-  flow_central = flow_central.compute([
-          ('Measurement time', agate.Formula(agate.Text(),
-                                       lambda r: str(r['CentralTime'].date())\
-                                       + " " \
-                                       + str(r['CentralTime'].time()))) 
-      ])
+# create a tableau-friendly date
+flow_central = flow_central.compute([
+        ('Measurement time', agate.Formula(agate.Text(),
+                                     lambda r: str(r['CentralTime'].date())\
+                                     + " " \
+                                     + str(r['CentralTime'].time()))) 
+    ])
 ```
 
 ## Reshaping table to collect selected columns
