@@ -14,28 +14,44 @@ specified_types = {
 table = agate.Table.from_csv('filename.csv', column_types=specified_types)
 ```
 
-## import from specic excel sheet
+## Rename columns
+
+I often rename columns to make them easier to work with. I typically set up a name list first. The first value is the original name, and the second is the new name:
+
+``` python
+# set column names
+renamed_columns = {
+  'a': 'one',
+  'b': 'two',
+  'c': 'three'
+}
+
+# apply the names
+new_table = table.rename(column_names = renamed_columns)
+```
+
+## Import from a specific excel sheet
 
 Importing from Excel requires an additional agate package called [agate-excel](http://agate-excel.readthedocs.io/en/0.2.2/), which then has to be imported. This is covered fairly well in the [Cookbook](http://agate.readthedocs.io/en/1.6.0/cookbook/create.html#from-an-excel-spreadsheet).
 
 ```python
+import warnings
+warnings.filterwarnings('ignore')
 import agateexcel
 
 data_table = agate.Table.from_xls('file.xls', sheet='data')
 # use from_xlsx for newer Excel file types
 ```
 
-I've gotten a bunch of warning messages the first time I've run code with `agateexcel` about the path of the module, but it still works and warnings do not reappear on subsequent runnings within the same session.
+I've gotten a bunch of warning messages the first time I've run code with `agateexcel` about the path of the module, but it still works and warnings do not reappear on subsequent runnings within the same session. But, sometimes I include the import warnings to avoid seeing them.
 
-## skip lines on import
+## Skip lines on import
 
-Sometimes you headers, descriptions or notes in a spreadsheet before the data starts. You can skip those lines on import
+Sometimes you have titles, descriptions or notes in a spreadsheet before the data starts. You can skip those lines on import
 
 ```python
 data_table = agate.Table.from_xls('file.xls', skip_lines=2)
 ```
-
-
 
 ## Merge files together
 

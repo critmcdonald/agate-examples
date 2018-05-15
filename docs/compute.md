@@ -8,10 +8,10 @@ This provides some examples of the [.compute() method](http://agate.readthedocs.
 In school data from TEA, the `Campus_ID` column is supposed to be a 9-digit column, and any school that is less than that should have zeros at the beginning. Sometimes .csv files saved from Excel loose this zero padding, but we can replace it:
 
 ```
-  zfilled = nodistrict.compute([
-      ('New_Campus_ID', agate.Formula(agate.Text(), lambda r: r['CAMPUS'].zfill(9))),
-      ('New_District_ID', agate.Formula(agate.Text(), lambda r: r['DISTRICT'].zfill(6)))
-  ])
+zfilled = nodistrict.compute([
+    ('New_Campus_ID', agate.Formula(agate.Text(), lambda r: r['CAMPUS'].zfill(9))),
+    ('New_District_ID', agate.Formula(agate.Text(), lambda r: r['DISTRICT'].zfill(6)))
+])
 ```
 
 For the first one, we created `New_Campus_ID` by going through the `Campus` column and using the Python method `.zfill()` to set pad any `Campus` that wasn't 9 characters. For  `['District']` we used "6".
